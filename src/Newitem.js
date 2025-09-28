@@ -46,7 +46,7 @@ function Newitem() {
                 onChange={(e) => setForm({ ...form, eventID: e.target.value })}
             />
             <h3>タイトルを入力してください</h3>
-            <p>イベント：初回は記録事項・テンプレートなど、引き継ぎに必要なものを書くことをお勧めします。</p>
+            <p>イベント：初回は記録事項・テンプレートなど、引き継ぎに必要なものを書くことをお勧めします</p>
             <textarea
                 value={form.title}
                 placeholder="引き継ぎ内容のタイトル 例) 2025年度"
