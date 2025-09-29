@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import "./App.css";
 
 
 function EventPage() {
@@ -36,7 +36,7 @@ function EventPage() {
     
   const { eventID } = useParams(); // URL から eventID を取得
   const [items, setItems] = useState([]);
-  const [form, setForm] = useState({ eventID: eventID, title: "", content: "" });
+  const [form, setForm] = useState({ eventID: eventID, title: "", content: "作成者：" });
 
 
   useEffect(() => {
@@ -54,9 +54,11 @@ function EventPage() {
   if (items.length === 0) return <div>読み込み中…</div>;
 
   return (
-    <div>
+    <div className="container">
       <h1>イベント: {eventID}</h1>
-                  <p>新しいカテゴリを追加するには内容を記載し追加ボタンを押してください。ページに反映されるのはリロード後です。</p>
+
+      <h2>新規作成</h2>
+      <p>新しいカテゴリを追加するには内容を記載し追加ボタンを押してください。ページに反映されるのはリロード後です。</p>
             <h3>タイトルを入力してください</h3>
             <p>イベントなら...2025年度 ツールの使い方なら...○○の導入方法 など</p>
             <textarea
@@ -68,14 +70,19 @@ function EventPage() {
             />
             <h3>本文を入力してください</h3>
             <p>実際に引き継ぎたい内容 など</p>
-            <input 
-                type="text"
+            <textarea 
                 value={form.content}
                 placeholder="引き継ぎ内容詳細"
                 onChange={(e) => setForm({ ...form, content: e.target.value })}
+                rows={4}
+                style={{ width: "100%", marginBottom: "10px" }}
             />
             <p></p>
             <button onClick={addItem}>追加</button>
+      
+      <hr />
+
+      <h2>引き継ぎ内容</h2>
 
       <ul>
         {items.map((item, idx) => (

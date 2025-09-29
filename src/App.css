@@ -1,38 +1,126 @@
-.App {
-  text-align: center;
+/*ページ全体のリセットと基本フォント*/
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(194, 215, 236);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ナビゲーションの設定 */
+nav {
+  position: fixed;      /* 常に画面上部に表示 */
+  top: 0;
+  left: 0;
+  width: 100%;          /* 画面横幅いっぱい */
+  background-color: #ffffff;  /* 白背景 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 下に軽い影 */
+  padding: 10px 20px;   /* 内側の余白 */
+  z-index: 1000;        /* 他の要素より前面に表示 */
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+/* nav 内のリンク */
+nav a {
+  text-decoration: none;
+  color: #333333;       /* 少し濃い文字色 */
+  margin-right: 20px;   /* リンク間の余白 */
+  transition: color 0.2s; /* ホバー時の色変化 */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav a:hover {
+  color: #007bff;       /* ホバー時に青色に */
+}
+
+
+/*中央コンテンツ用のコンテナ*/
+.container {
+  max-width: 1000px;
+  margin: 80px auto 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgb(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+/* タイトルと段落の余白 */
+h1 {
+  margin-bottom: 16px;
+}
+
+p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* ボタン設定 */
+button {
+  background-color: #007bff;      /* 青色背景 */
+  color: #fff;                    /* 文字色白 */
+  border: none;                   /* デフォルトの枠線を消す */
+  border-radius: 6px;             /* 角を丸く */
+  padding: 10px 20px;             /* 内側の余白 */
+  font-size: 16px;                /* 文字サイズ */
+  font-weight: bold;
+  cursor: pointer;                /* ホバー時に手の形 */
+  transition: all 0.2s;           /* ホバー時のアニメーション */
+}
+
+button:hover {
+  background-color: #0056b3;      /* ホバーで濃い青に */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* 少し浮かせる */
+}
+
+button:active {
+  transform: translateY(1px);     /* クリック時に少し沈む */
+}
+
+/* 区切り線設定 */
+hr {
+  border: none;                 /* デフォルトの線を消す */
+  border-top: 2px solid #ccc;   /* 上部に薄い線を引く */
+  margin: 40px 0;               /* 上下の余白 */
+  width: 100%;                  /* 横いっぱい */
+}
+
+/* 入力欄設定 */
+input[type="text"] {
+  border: 1px solid #ccc;      /* 通常は灰色 */
+  background-color: #fefefe;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 16px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+/* フォーカス時 */
+input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;      /* 青色に変更 */
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+  background-color: #fff;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fefefe;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: vertical; /* ユーザーが縦にサイズ変更できる */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #007bff; /* フォーカス時の青ライン */
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.2); /* 柔らかい光のような影 */
+  background-color: #fff;
 }

@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import "./App.css";
 
 // 新しい引き継ぎを作成
 function Newitem() {
-    const [form, setForm] = useState({ eventID:"", createdAt:"", title:"", content:"" });
+    const [form, setForm] = useState({ eventID:"", createdAt:"", title:"", content:"作成者：" });
 
     const addItem = async () => {
         if (!form.eventID || !form.title || !form.content) {
@@ -33,7 +34,8 @@ function Newitem() {
     };
 
     return(
-        <div>
+        <div className="container">
+            <h1>カテゴリ新規作成</h1>
             <p>新しいカテゴリを追加するには内容を記載し追加ボタンを押してください。ページに反映されるのはリロード後です。</p>
            
 
@@ -55,11 +57,12 @@ function Newitem() {
                 style={{ width: "100%", marginBottom: "10px" }} // 横幅と間隔
             />
             <h>内容を入力してください</h>
-            <input 
-                type="text"
+            <textarea
                 value={form.content}
                 placeholder="引き継ぎ内容詳細"
                 onChange={(e) => setForm({ ...form, content: e.target.value })}
+                rows={4}
+                style={{ width: "100%", marginBottom: "10px" }}
             />
             <p></p>
             <button onClick={addItem}>追加</button>

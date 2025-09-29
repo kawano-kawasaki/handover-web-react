@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import EventPage from "./EventPage";
 import Newitem from "./Newitem";
 import About from "./About";
+import "./App.css";
 
 function App() {
   return (

@@ -1,0 +1,21 @@
+.loading {
+    font-size: 18px;
+    color: #e7eef5;         /* 青文字 */
+
+    position: fixed;     /* 画面全体に対して中央配置 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 中心にぴったり合わせる */
+
+    text-align: center;
+}
+
+.loading::after {
+  content: "…";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}

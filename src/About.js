@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./App.css";
+import "./About.css"
 
 function About() {
     const [events, setEvents] = useState([]);
@@ -21,13 +23,13 @@ function About() {
             });
     }, []);
 
-    if (events.length === 0) return <div>読み込み中…</div>;
+    if (events.length === 0) return <div className="loading">読み込み中…</div>;
 
     // eventID の重複を除外
     const uniqueEventIDs = Array.from(new Set(events.map(e => e.eventID)));
 
     return (
-        <div>
+        <div className="container">
             <h1>イベント一覧</h1>
             <ul>
                 {uniqueEventIDs.map(eventID => (
@@ -36,6 +38,9 @@ function About() {
                     </li>
                 ))}
             </ul>
+
+            <hr />
+
             <h1>このサイトについて</h1>
             <h2>概要</h2>
             <p>このサイトは、研究室でのイベント内容やその企画過程を記録し、引き継ぎを行うためのものです。合宿の幹事がスケジュールを共有するのはもちろん、センサのセットアップ方法の記録・共有などにも使用できます。</p>
