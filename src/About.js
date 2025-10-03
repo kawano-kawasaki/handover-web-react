@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./App.css";
-import "./About.css"
+import "./About.css";
+import config from "./config";
 
 function About() {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        fetch("https://r8lqaz2b13.execute-api.ap-northeast-1.amazonaws.com/dev/events")
+        fetch(`${config.API_GET_URL}`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);

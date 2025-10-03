@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import "./App.css";
+import config from "./config";
 
 // 新しい引き継ぎを作成
 function Newitem() {
@@ -16,7 +17,7 @@ function Newitem() {
         const payload = { ...form, createdAt: now };
 
         try {
-            const response = await fetch("https://08en6jgure.execute-api.ap-northeast-1.amazonaws.com/dev/register", {
+            const response = await fetch(`${config.API_POST_URL}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)

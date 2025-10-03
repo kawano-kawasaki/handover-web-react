@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./App.css";
+import config from "./config";
 
 
 function EventPage() {
@@ -16,7 +17,7 @@ function EventPage() {
         const payload = { ...form, createdAt: now };
 
         try {
-            const response = await fetch("https://08en6jgure.execute-api.ap-northeast-1.amazonaws.com/dev/register", {
+            const response = await fetch(`${config.API_POST_URL}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
@@ -40,7 +41,7 @@ function EventPage() {
 
 
   useEffect(() => {
-    fetch(`https://r8lqaz2b13.execute-api.ap-northeast-1.amazonaws.com/dev/events`)
+    fetch(`${config.API_GET_URL}`)
       .then(res => res.json())
       .then(data => {
         // 該当 eventID のデータをすべて取得
