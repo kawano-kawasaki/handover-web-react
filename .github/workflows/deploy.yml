@@ -21,6 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Create .env file from GitHub Secrets
+        run: |
+          echo "REACT_APP_DATA_GET_URL=${{ secrets.REACT_APP_DATA_GET_URL }}" >> .env
+          echo "REACT_APP_DATA_POST_URL=${{ secrets.REACT_APP_DATA_POST_URL }}" >> .env
+          cat .env
+
       - name: Build React app
         run: npm run build
 
