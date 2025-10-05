@@ -21,6 +21,7 @@ function About() {
             })
             .catch(err => {
                 console.error("Fetchエラー:", err);
+                console.log("API_GET_URL:", config.API_GET_URL);
             });
     }, []);
 
