@@ -29,6 +29,9 @@ jobs:
 
       - name: Build React app
         run: npm run build
+        env:
+          REACT_APP_DATA_GET_URL: ${{ secrets.REACT_APP_DATA_GET_URL }}
+          REACT_APP_DATA_POST_URL: ${{ secrets.REACT_APP_DATA_POST_URL }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v2
